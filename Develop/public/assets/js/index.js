@@ -1,3 +1,6 @@
+// import { notes } from '../../../data/notes.json';
+// import createNewNote from '../../../lib/noteFunctions';
+
 let noteTitle;
 let noteText;
 let saveNoteBtn;
@@ -52,7 +55,7 @@ const deleteNote = (id) =>
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
-
+  console.log(activeNote);
   if (activeNote.id) {
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
@@ -69,7 +72,9 @@ const handleNoteSave = () => {
     title: noteTitle.value,
     text: noteText.value,
   };
-  saveNote(newNote).then(() => {
+  saveNote(newNote).then((response) => {
+    console.log("newNote is: ", newNote);
+    // const newNoteObj = response.json();
     getAndRenderNotes();
     renderActiveNote();
   });
