@@ -66,6 +66,8 @@ const renderActiveNote = () => {
     console.log("We are in the else statement with: ", activeNote);
     noteTitle.value = '';
     noteText.value = '';
+    noteTitle.removeAttribute('readonly');
+    noteText.removeAttribute('readonly');
   }
 };
 
