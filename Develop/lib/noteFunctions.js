@@ -3,6 +3,7 @@ const path = require('path');
 
 function createNewNote(body, noteArray) {
     const note = body;
+    note.id = noteArray.length.toString();
     noteArray.push(note);
 
     fs.writeFileSync(
