@@ -55,13 +55,15 @@ const deleteNote = (id) =>
 
 const renderActiveNote = () => {
   hide(saveNoteBtn);
-  console.log(activeNote);
+  // console.log(activeNote);
   if (activeNote.id) {
+    console.log("We are inside the if statement with: ", activeNote);
     noteTitle.setAttribute('readonly', true);
     noteText.setAttribute('readonly', true);
     noteTitle.value = activeNote.title;
     noteText.value = activeNote.title;
   } else {
+    console.log("We are in the else statement with: ", activeNote);
     noteTitle.value = '';
     noteText.value = '';
   }
@@ -74,7 +76,6 @@ const handleNoteSave = () => {
   };
   saveNote(newNote).then((response) => {
     console.log("newNote is: ", newNote);
-    // const newNoteObj = response.json();
     getAndRenderNotes();
     renderActiveNote();
   });
